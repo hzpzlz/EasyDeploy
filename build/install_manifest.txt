@@ -1,3 +1,0 @@
-/home/disk/4T/codes/Deploy/EasyDeploy/build/install/bin/segDemo
-/home/disk/4T/codes/Deploy/EasyDeploy/build/install/lib/libseglib.so
-/home/disk/4T/codes/Deploy/EasyDeploy/build/install/demo/seg_demo.cpp

@@ -1,12 +1,13 @@
 #!/bin/bash
 ####目前仅使用于linux和phone的CPU后端，后续会更新DSP和GPU
 
-ARCH='android'  # "linux" "android"
+ARCH='linux'  # "linux" "android"
+HPC_BACKEND='NCNN'  #'MNN' 'NCNN'
 
 mkdir build
 cd build
 rm * -rf
-../build.sh $ARCH
+../build.sh $ARCH ${HPC_BACKEND}
 
 make -j8
 make install

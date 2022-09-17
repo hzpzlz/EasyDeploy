@@ -1,6 +1,6 @@
 ARCH=$1    # suport  'linux' 'android'
 ABI='arm64-v8a'   # only support arm68-v8a 
-HPC_BACKEND='MNN' # now only support MNN, support NCNN soon
+HPC_BACKEND=$2 # now only support MNN, support NCNN soon
 
 #!/bin/bash
 

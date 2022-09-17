@@ -23,11 +23,12 @@ else()
 endif()
 
 #头文件
-if(HPC_BACKEND STREQUAL "MNN")
-    set(HPC_INC ${CMAKE_SOURCE_DIR}/dependency/inc/${HPC_BACKEND}/)
-elseif(HPC_BACKEND STREQUAL "NCNN")
-    set(HPC_INC ${CMAKE_SOURCE_DIR}/dependency/inc/${HPC_BACKEND}/)
-endif()
+set(HPC_INC ${CMAKE_SOURCE_DIR}/dependency/inc/${HPC_BACKEND}/)
+# if(HPC_BACKEND STREQUAL "MNN")
+#     set(HPC_INC ${CMAKE_SOURCE_DIR}/dependency/inc/${HPC_BACKEND}/)
+# elseif(HPC_BACKEND STREQUAL "NCNN")
+#     set(HPC_INC ${CMAKE_SOURCE_DIR}/dependency/inc/${HPC_BACKEND}/)
+# endif()
 
 #依赖库
 if(HPC_BACKEND STREQUAL "MNN")
@@ -35,7 +36,8 @@ if(HPC_BACKEND STREQUAL "MNN")
     # set(HPC_LIB ${CMAKE_SOURCE_DIR}/dependency/libs/${ARCH}/${HPC_BACKEND})
     # LINK_DIRECTORIES(${HPC_LIB})
 elseif(HPC_BACKEND STREQUAL "NCNN")
-    set(HPC_LIB ${CMAKE_SOURCE_DIR}/dependency/libs/${ARCH}/${HPC_BACKEND}/libNCNN.so)
+    set(HPC_LIB ${CMAKE_SOURCE_DIR}/dependency/libs/${ARCH}/${HPC_BACKEND}/libncnn.so.1)
+    #FILE(GLOB_RECURSE HPC_LIB ${CMAKE_SOURCE_DIR}/dependency/libs/${ARCH}/opencv2/*.so)
 endif()
 
 message(STATUS "HPC_BACKEND_INC = " ${HPC_INC})
@@ -61,8 +63,10 @@ include_directories(${OPENCV_INC})
 include_directories(${HPC_INC})
 
 #编写的demo和前后处理所需的头文件以及Cpp
-FILE(GLOB_RECURSE mnist_demo_cpp ${CMAKE_SOURCE_DIR}/src/mnist_demo.cpp)
-FILE(GLOB_RECURSE seg_demo_cpp ${CMAKE_SOURCE_DIR}/src/seg_demo.cpp)
+#FILE(GLOB_RECURSE mnist_demo_cpp ${CMAKE_SOURCE_DIR}/demo/mnist_demo.cpp)
+#FILE(GLOB_RECURSE seg_demo_cpp ${CMAKE_SOURCE_DIR}/demo/seg_demo.cpp)
+FILE(GLOB_RECURSE seg_demo_cpp ${CMAKE_SOURCE_DIR}/demo/squeezenet_ncnn.cpp)
+#FILE(GLOB_RECURSE seg_demo_cpp ${CMAKE_SOURCE_DIR}/demo/suqeezenet_mnn.cpp)
 
 message(STATUS "DEMO_CPP = " ${seg_demo_cpp})
 
