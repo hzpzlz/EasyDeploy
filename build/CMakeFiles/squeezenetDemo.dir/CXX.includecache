@@ -1083,6 +1083,10 @@ algorithm
 ../inc/ed_engine_base.h
 vector
 -
+string
+-
+map
+-
 
 ../inc/inference.h
 string

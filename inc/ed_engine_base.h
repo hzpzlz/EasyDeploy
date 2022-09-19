@@ -3,6 +3,8 @@
 #define __ED_EBGINE_BASE_H__
 
 #include <vector>
+#include <string>
+#include <map>
 
 enum EngineRuntime {
     MNN_RUNTIME_CPU = 100,

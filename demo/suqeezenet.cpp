@@ -32,14 +32,10 @@ int main(void)
     printf("input img size: %d %d \n", raw_image_height, raw_image_width);
 
     // image preprocessing
-    //const float mean_values[3] = {104.f, 117.f, 123.f};
-    //const float val_values[3] = {1.f / 255.f, 1.f / 255.f, 1.f / 255.f};
+#ifdef __MNN_INFER_FRAMEWORK__
     image.convertTo(image, CV_32FC3, 1.0);
     image = image / 255.0;
-
-    // std::map<std::string, EdBuffer> input;
-    // std::map<std::string, EdBuffer> output;
-
+#endif
     float *out_data = new float[1000];
 
     model_config.input["data"].dataType = 32;

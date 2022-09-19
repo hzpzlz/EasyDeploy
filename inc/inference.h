@@ -41,10 +41,7 @@ public:
 
 
 private:
-#ifdef __MNN_INFER_FRAMEWORK__
     InferEngine *infer_engine = nullptr;
-#endif
-    
 };
 
 #endif

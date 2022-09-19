@@ -17,7 +17,7 @@ int inference::Init(InferConfig config, InferModelConfig model_config) {
         return -1;
     }
     EdModelInfo model_info = {};
-    model_info.modelPath = "squeezenet_v1.1.mnn";
+    model_info.modelPath = "squeezenet_v1.1";
     setRuntime(model_config.runtime, model_info);
     setPrecision(model_config.precision, model_info);
     setPower(model_config.power, model_info);
@@ -43,6 +43,7 @@ int inference::Init(InferConfig config, InferModelConfig model_config) {
     model_info.outputNode.push_back(output_node);
 
     std::string model_path = config.assets_path + std::string("/") + std::string(model_info.modelPath);
+
     int flag;
     flag = infer_engine->Init(model_info, model_path, model_config.input, model_config.output);
     if (flag !=0 ){

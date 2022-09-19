@@ -60,93 +60,93 @@ include CMakeFiles/squeezenetlib.dir/flags.make
 CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.o: CMakeFiles/squeezenetlib.dir/flags.make
 CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.o: ../infer_engine/MNN/mnn_class.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/disk/4T/codes/Deploy/EasyDeploy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.o"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/infer_engine/MNN/mnn_class.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/infer_engine/MNN/mnn_class.cpp
 
 CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.i"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/infer_engine/MNN/mnn_class.cpp > CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/infer_engine/MNN/mnn_class.cpp > CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.i
 
 CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.s"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/infer_engine/MNN/mnn_class.cpp -o CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/infer_engine/MNN/mnn_class.cpp -o CMakeFiles/squeezenetlib.dir/infer_engine/MNN/mnn_class.cpp.s
 
 CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.o: CMakeFiles/squeezenetlib.dir/flags.make
 CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.o: ../src/ed_core.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/disk/4T/codes/Deploy/EasyDeploy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.o"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/src/ed_core.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/src/ed_core.cpp
 
 CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.i"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/src/ed_core.cpp > CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/src/ed_core.cpp > CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.i
 
 CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.s"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/src/ed_core.cpp -o CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/src/ed_core.cpp -o CMakeFiles/squeezenetlib.dir/src/ed_core.cpp.s
 
 CMakeFiles/squeezenetlib.dir/src/inference.cpp.o: CMakeFiles/squeezenetlib.dir/flags.make
 CMakeFiles/squeezenetlib.dir/src/inference.cpp.o: ../src/inference.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/disk/4T/codes/Deploy/EasyDeploy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/squeezenetlib.dir/src/inference.cpp.o"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/src/inference.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/src/inference.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/src/inference.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/src/inference.cpp
 
 CMakeFiles/squeezenetlib.dir/src/inference.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezenetlib.dir/src/inference.cpp.i"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/src/inference.cpp > CMakeFiles/squeezenetlib.dir/src/inference.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/src/inference.cpp > CMakeFiles/squeezenetlib.dir/src/inference.cpp.i
 
 CMakeFiles/squeezenetlib.dir/src/inference.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezenetlib.dir/src/inference.cpp.s"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/src/inference.cpp -o CMakeFiles/squeezenetlib.dir/src/inference.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/src/inference.cpp -o CMakeFiles/squeezenetlib.dir/src/inference.cpp.s
 
 CMakeFiles/squeezenetlib.dir/src/params.cpp.o: CMakeFiles/squeezenetlib.dir/flags.make
 CMakeFiles/squeezenetlib.dir/src/params.cpp.o: ../src/params.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/disk/4T/codes/Deploy/EasyDeploy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/squeezenetlib.dir/src/params.cpp.o"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/src/params.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/src/params.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/src/params.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/src/params.cpp
 
 CMakeFiles/squeezenetlib.dir/src/params.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezenetlib.dir/src/params.cpp.i"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/src/params.cpp > CMakeFiles/squeezenetlib.dir/src/params.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/src/params.cpp > CMakeFiles/squeezenetlib.dir/src/params.cpp.i
 
 CMakeFiles/squeezenetlib.dir/src/params.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezenetlib.dir/src/params.cpp.s"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/src/params.cpp -o CMakeFiles/squeezenetlib.dir/src/params.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/src/params.cpp -o CMakeFiles/squeezenetlib.dir/src/params.cpp.s
 
 CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.o: CMakeFiles/squeezenetlib.dir/flags.make
 CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.o: ../image/src/post_process.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/disk/4T/codes/Deploy/EasyDeploy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.o"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/image/src/post_process.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/image/src/post_process.cpp
 
 CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.i"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/image/src/post_process.cpp > CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/image/src/post_process.cpp > CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.i
 
 CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.s"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/image/src/post_process.cpp -o CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/image/src/post_process.cpp -o CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.s
 
 CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.o: CMakeFiles/squeezenetlib.dir/flags.make
 CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.o: ../image/src/pre_process.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/disk/4T/codes/Deploy/EasyDeploy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.o"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/image/src/pre_process.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/image/src/pre_process.cpp
 
 CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.i"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/image/src/pre_process.cpp > CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/image/src/pre_process.cpp > CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.i
 
 CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.s"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/image/src/pre_process.cpp -o CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/image/src/pre_process.cpp -o CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.s
 
 CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.o: CMakeFiles/squeezenetlib.dir/flags.make
 CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.o: ../demo/suqeezenet.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/disk/4T/codes/Deploy/EasyDeploy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.o"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/demo/suqeezenet.cpp
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.o -c /home/disk/4T/codes/Deploy/EasyDeploy/demo/suqeezenet.cpp
 
 CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.i"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/demo/suqeezenet.cpp > CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/disk/4T/codes/Deploy/EasyDeploy/demo/suqeezenet.cpp > CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.i
 
 CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.s"
-	/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=aarch64-none-linux-android24 --gcc-toolchain=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64 --sysroot=/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/sysroot $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/demo/suqeezenet.cpp -o CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/disk/4T/codes/Deploy/EasyDeploy/demo/suqeezenet.cpp -o CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.s
 
 # Object files for target squeezenetlib
 squeezenetlib_OBJECTS = \
@@ -169,22 +169,22 @@ libsqueezenetlib.so: CMakeFiles/squeezenetlib.dir/image/src/post_process.cpp.o
 libsqueezenetlib.so: CMakeFiles/squeezenetlib.dir/image/src/pre_process.cpp.o
 libsqueezenetlib.so: CMakeFiles/squeezenetlib.dir/demo/suqeezenet.cpp.o
 libsqueezenetlib.so: CMakeFiles/squeezenetlib.dir/build.make
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/MNN/libMNN.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_calib3d.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_core.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_dnn.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_features2d.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_flann.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_gapi.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_highgui.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_imgcodecs.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_imgproc.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_ml.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_objdetect.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_photo.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_stitching.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_video.so
-libsqueezenetlib.so: ../dependency/libs/arm64-v8a/opencv2/libopencv_videoio.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/MNN/libMNN.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_calib3d.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_core.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_dnn.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_features2d.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_flann.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_gapi.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_highgui.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_imgcodecs.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_imgproc.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_ml.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_objdetect.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_photo.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_stitching.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_video.so
+libsqueezenetlib.so: ../dependency/libs/x86_64/opencv2/libopencv_videoio.so
 libsqueezenetlib.so: CMakeFiles/squeezenetlib.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/disk/4T/codes/Deploy/EasyDeploy/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX shared library libsqueezenetlib.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/squeezenetlib.dir/link.txt --verbose=$(VERBOSE)

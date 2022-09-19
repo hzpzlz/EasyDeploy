@@ -34,10 +34,16 @@ endif()
 
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
-  set(CMAKE_CROSSCOMPILING "TRUE")
+  set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/bin/squeezenetDemo" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/bin/squeezenetDemo")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/bin/squeezenetDemo"
+         RPATH "")
+  endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/disk/4T/codes/Deploy/EasyDeploy/build/install/bin/squeezenetDemo")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -49,13 +55,23 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 file(INSTALL DESTINATION "/home/disk/4T/codes/Deploy/EasyDeploy/build/install/bin" TYPE EXECUTABLE FILES "/home/disk/4T/codes/Deploy/EasyDeploy/build/squeezenetDemo")
   if(EXISTS "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/bin/squeezenetDemo" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/bin/squeezenetDemo")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/bin/squeezenetDemo"
+         OLD_RPATH "/home/disk/4T/codes/Deploy/EasyDeploy/dependency/libs/x86_64/MNN:/home/disk/4T/codes/Deploy/EasyDeploy/dependency/libs/x86_64/opencv2:"
+         NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android-strip" "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/bin/squeezenetDemo")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/bin/squeezenetDemo")
     endif()
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  if(EXISTS "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/lib/libsqueezenetlib.so" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/lib/libsqueezenetlib.so")
+    file(RPATH_CHECK
+         FILE "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/lib/libsqueezenetlib.so"
+         RPATH "")
+  endif()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/disk/4T/codes/Deploy/EasyDeploy/build/install/lib/libsqueezenetlib.so")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
@@ -67,8 +83,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 file(INSTALL DESTINATION "/home/disk/4T/codes/Deploy/EasyDeploy/build/install/lib" TYPE SHARED_LIBRARY FILES "/home/disk/4T/codes/Deploy/EasyDeploy/build/libsqueezenetlib.so")
   if(EXISTS "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/lib/libsqueezenetlib.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/lib/libsqueezenetlib.so")
+    file(RPATH_CHANGE
+         FILE "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/lib/libsqueezenetlib.so"
+         OLD_RPATH "/home/disk/4T/codes/Deploy/EasyDeploy/dependency/libs/x86_64/MNN:/home/disk/4T/codes/Deploy/EasyDeploy/dependency/libs/x86_64/opencv2:"
+         NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
-      execute_process(COMMAND "/home/hzp/NDK/android-ndk-r19c/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android-strip" "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/lib/libsqueezenetlib.so")
+      execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}/home/disk/4T/codes/Deploy/EasyDeploy/build/install/lib/libsqueezenetlib.so")
     endif()
   endif()
 endif()

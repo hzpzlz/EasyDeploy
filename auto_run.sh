@@ -1,7 +1,7 @@
 #!/bin/bash
 ####目前仅使用于linux和phone的CPU后端，后续会更新DSP和GPU
 
-ARCH='android'  # "linux" "android"
+ARCH='linux'  # "linux" "android"
 HPC_BACKEND='MNN'  #'MNN' 'NCNN'
 
 mkdir build
