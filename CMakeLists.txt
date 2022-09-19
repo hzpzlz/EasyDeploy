@@ -22,33 +22,50 @@ else()
     message(FATAL_ERROR "OTHER")
 endif()
 
-#头文件
-set(HPC_INC ${CMAKE_SOURCE_DIR}/dependency/inc/${HPC_BACKEND}/)
-# if(HPC_BACKEND STREQUAL "MNN")
-#     set(HPC_INC ${CMAKE_SOURCE_DIR}/dependency/inc/${HPC_BACKEND}/)
-# elseif(HPC_BACKEND STREQUAL "NCNN")
-#     set(HPC_INC ${CMAKE_SOURCE_DIR}/dependency/inc/${HPC_BACKEND}/)
-# endif()
-
-#依赖库
 if(HPC_BACKEND STREQUAL "MNN")
-    set(HPC_LIB ${CMAKE_SOURCE_DIR}/dependency/libs/${ARCH}/${HPC_BACKEND}/libMNN.so)
-    # set(HPC_LIB ${CMAKE_SOURCE_DIR}/dependency/libs/${ARCH}/${HPC_BACKEND})
-    # LINK_DIRECTORIES(${HPC_LIB})
+    message(STATUS "Using MNN Inference Framework")
+    add_definitions(-D__MNN_INFER_FRAMEWORK__)
 elseif(HPC_BACKEND STREQUAL "NCNN")
-    set(HPC_LIB ${CMAKE_SOURCE_DIR}/dependency/libs/${ARCH}/${HPC_BACKEND}/libncnn.so.1)
-    #FILE(GLOB_RECURSE HPC_LIB ${CMAKE_SOURCE_DIR}/dependency/libs/${ARCH}/opencv2/*.so)
+    message(STATUS "Using NCNN Inference Framework")
+    add_definitions(-D__NCNN_INFER_FRAMEWORK__)
+else ()
+    message(FATAL_ERROR "Not support this backend: " ${HPC_BACKEND})
 endif()
 
-message(STATUS "HPC_BACKEND_INC = " ${HPC_INC})
-message(STATUS "HPC_BACKEND_LIBS = " ${HPC_LIB})
+message(STATUS "\n=========================== include ===========================\n")
 
-##opencv 头文件
+#图像前后处理、项目的头文件以及推理框架的头文件
+set(HPC_CLASS_INC ${CMAKE_SOURCE_DIR}/infer_engine/${HPC_BACKEND}/)
+set(HPC_INC ${CMAKE_SOURCE_DIR}/dependency/inc/${HPC_BACKEND}/ ${HPC_CLASS_INC})
+set(EASY_DEPLOY_INC ${CMAKE_SOURCE_DIR}/inc/)
+set(IMAGE_PROCESS_INC ${CMAKE_SOURCE_DIR}/image/inc/)
+#opencv头文件
 set(OPENCV_INC ${CMAKE_SOURCE_DIR}/dependency/inc/opencv4/)
-##opencv 依赖库 多个.so文件，用FILE 
+
+message(STATUS "HPC_BACKEND_INC = " ${HPC_INC})
+message(STATUS "OPENCV_INC = " ${OPENCV_INC})
+message(STATUS "IMAGE_PROCESS_INC = " ${IMAGE_PROCESS_INC})
+message(STATUS "EASY_DEPLOY_INC = " ${EASY_DEPLOY_INC})
+
+#include头文件
+include_directories(${OPENCV_INC})
+include_directories(${HPC_INC})
+include_directories(${EASY_DEPLOY_INC})
+include_directories(${IMAGE_PROCESS_INC})
+
+message(STATUS "\n=========================== libs ===========================\n")
+
+#推理框架的依赖库
+if(HPC_BACKEND STREQUAL "MNN")
+    set(HPC_LIB ${CMAKE_SOURCE_DIR}/dependency/libs/${ARCH}/${HPC_BACKEND}/libMNN.so)
+elseif(HPC_BACKEND STREQUAL "NCNN")
+    set(HPC_LIB ${CMAKE_SOURCE_DIR}/dependency/libs/${ARCH}/${HPC_BACKEND}/libncnn.so.1)
+endif()
+
+#opencv依赖库 多个.so文件，用FILE 
 FILE(GLOB_RECURSE OPENCV_LIB ${CMAKE_SOURCE_DIR}/dependency/libs/${ARCH}/opencv2/*.so)
 
-message(STATUS "OPENCV_INC = ${OPENCV_INC}")
+message(STATUS "HPC_BACKEND_LIBS = " ${HPC_LIB})
 message(STATUS "OPENCV_LIB = ${OPENCV_LIB}")
 
 ###适合安装好的的linux
@@ -58,27 +75,27 @@ message(STATUS "OPENCV_LIB = ${OPENCV_LIB}")
 # message(STATUS "OPENCV_INC = ${OpenCV_INCLUDE_DIRS}")
 # message(STATUS "OPENCV_LIB = ${OpenCV_LIBRARIES}")
 
-#include头文件
-include_directories(${OPENCV_INC})
-include_directories(${HPC_INC})
+#demo和前后处理所需的cpp
+FILE(GLOB_RECURSE hpc_class_cpp ${CMAKE_SOURCE_DIR}/infer_engine/${HPC_BACKEND}/*.cpp)
+FILE(GLOB_RECURSE easy_deploy_cpp ${CMAKE_SOURCE_DIR}/src/*.cpp)
+FILE(GLOB_RECURSE image_process_cpp ${CMAKE_SOURCE_DIR}/image/src/*.cpp)
+FILE(GLOB_RECURSE demo_cpp ${CMAKE_SOURCE_DIR}/demo/suqeezenet.cpp)
+message(STATUS "DEMO_CPP = " ${demo_cpp})
 
-#编写的demo和前后处理所需的头文件以及Cpp
-#FILE(GLOB_RECURSE mnist_demo_cpp ${CMAKE_SOURCE_DIR}/demo/mnist_demo.cpp)
-#FILE(GLOB_RECURSE seg_demo_cpp ${CMAKE_SOURCE_DIR}/demo/seg_demo.cpp)
-FILE(GLOB_RECURSE seg_demo_cpp ${CMAKE_SOURCE_DIR}/demo/squeezenet_ncnn.cpp)
-#FILE(GLOB_RECURSE seg_demo_cpp ${CMAKE_SOURCE_DIR}/demo/suqeezenet_mnn.cpp)
-
-message(STATUS "DEMO_CPP = " ${seg_demo_cpp})
+message(STATUS "\n================== execute CMakeLists Done, Start Install =============\n")
 
 #动态库
 add_library(
-    seglib
+    squeezenetlib
     SHARED
-    ${seg_demo_cpp}
+    ${hpc_class_cpp}
+    ${easy_deploy_cpp}
+    ${image_process_cpp}
+    ${demo_cpp}
 )
 #链接所需的lib
 target_link_libraries(
-    seglib
+    squeezenetlib
     ${HPC_LIB}
     ${OPENCV_LIB}
 )
@@ -87,7 +104,10 @@ target_link_libraries(
 # add_library(
 #     seglibstatic
 #     STATIC
-#     ${seg_demo_cpp}
+#     ${hpc_class_cpp}
+#     ${image_process_cpp}
+#     ${easy_deploy_cpp}
+#     ${demo_cpp}
 # )
 # #链接所需的lib
 # target_link_libraries(
@@ -98,12 +118,15 @@ target_link_libraries(
 
 #生成可执行文件
 add_executable(
-    segDemo
-    ${seg_demo_cpp}
+    squeezenetDemo
+    ${hpc_class_cpp}
+    ${image_process_cpp}
+    ${easy_deploy_cpp}
+    ${demo_cpp}
 )
 #链接所需的lib
 target_link_libraries(
-    segDemo
+    squeezenetDemo
     ${HPC_LIB}
     ${OPENCV_LIB}
 )
@@ -112,14 +135,14 @@ target_link_libraries(
 set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/build/install)
 set(CMAKE_INSTALL_BINDIR ${CMAKE_INSTALL_PREFIX}/bin/)
 set(CMAKE_INSTALL_LIBDIR ${CMAKE_INSTALL_PREFIX}/lib/)
-# set(CMAKE_INSTALL_INCLUDEDIR ${CMAKE_INSTALL_PREFIX}/inc/)
+#set(CMAKE_INSTALL_INCLUDEDIR ${CMAKE_INSTALL_PREFIX}/inc/)
 set(path_demo_output ${CMAKE_INSTALL_PREFIX}/demo/)
 
 install(
-    TARGETS segDemo seglib
+    TARGETS squeezenetDemo squeezenetlib
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
-# install(DIRECTORY ${path_inc_output} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+#install(DIRECTORY ${path_inc_output} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(FILES ${seg_demo_cpp} DESTINATION ${path_demo_output})

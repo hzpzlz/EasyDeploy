@@ -1,0 +1,2 @@
+/home/disk/4T/codes/Deploy/EasyDeploy/build/install/bin/squeezenetDemo
+/home/disk/4T/codes/Deploy/EasyDeploy/build/install/lib/libsqueezenetlib.so
