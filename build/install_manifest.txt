@@ -1,3 +1,0 @@
-/home/disk/4T/codes/Deploy/EasyDeploy/build/sdks/segmentation/install/bin/segmentationDemo
-/home/disk/4T/codes/Deploy/EasyDeploy/build/sdks/segmentation/install/lib/libsegmentation.so
-/home/disk/4T/codes/Deploy/EasyDeploy/build/sdks/segmentation/install/demo//demo/segmentation.cpp
