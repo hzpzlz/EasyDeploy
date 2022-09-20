@@ -2,38 +2,32 @@ cmake_minimum_required(VERSION 3.10.2)
 
 project(squeezenet)
 
-aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/src ${PROJECT_NAME}_cpps)
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/src cpps)
 FILE(GLOB_RECURSE squeezenet_demo_cpp ${CMAKE_CURRENT_SOURCE_DIR}/demo/squeezenet.cpp)
 
 #动态库
 add_library(
     ${PROJECT_NAME}
     SHARED
-    ${hpc_class_cpp}
-    ${image_process_cpp}
-    ${easy_deploy_cpp}
+    ${EASY_DEPLOY_CPPS}
     ${squeezenet_demo_cpp}
 )
 #链接所需的lib
 target_link_libraries(
     ${PROJECT_NAME}
-    ${HPC_LIB}
-    ${OPENCV_LIB}
+    ${EASY_DEPLOY_LIBS}
 )
 
 #生成可执行文件
 add_executable(
     ${PROJECT_NAME}Demo
-    ${hpc_class_cpp}
-    ${image_process_cpp}
-    ${easy_deploy_cpp}
+    ${EASY_DEPLOY_CPPS}
     ${squeezenet_demo_cpp}
 )
 #链接所需的lib
 target_link_libraries(
     ${PROJECT_NAME}Demo
-    ${HPC_LIB}
-    ${OPENCV_LIB}
+    ${EASY_DEPLOY_LIBS}
 )
 
 ##install
