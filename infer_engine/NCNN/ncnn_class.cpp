@@ -60,11 +60,11 @@ int InferEngine::checkIOBuffer(const std::vector<EdNodeInfo> in_node_info, std::
 
     for (auto iter : in_node_info) {
         const char *inputName = iter.name;
-        printf("intput info %s %ld \n", inputName, in_buffer[inputName].bufferSize);
-        unsigned char *ptr = reinterpret_cast<unsigned char *>(in_buffer[inputName].bufferData);
-        for (int j = 555; j < 565; j++) {
-            printf("%d input 1 buffer \n", *(ptr + j));
-        }
+        printf("intput info-> name: %s buffer_size: %ld \n", inputName, in_buffer[inputName].bufferSize);
+        // unsigned char *ptr = reinterpret_cast<unsigned char *>(in_buffer[inputName].bufferData);
+        // for (int j = 555; j < 565; j++) {
+        //     printf("%d input buffer \n", *(ptr + j));
+        // }
         
         ncnn::Mat inputData = ncnn::Mat::from_pixels_resize((unsigned char*)in_buffer[inputName].bufferData, 2, iter.shape[1], iter.shape[2], 227, 227);
         const float mean_values[3] = {0.f, 0.f, 0.f};
@@ -76,16 +76,15 @@ int InferEngine::checkIOBuffer(const std::vector<EdNodeInfo> in_node_info, std::
 
     for (auto iter : out_node_info) {
         const char *outputName = iter.name;
-        printf("output info %s %ld \n", outputName, out_buffer[outputName].bufferSize);
+        printf("output info-> name: %s buffer_size: %ld \n", outputName, out_buffer[outputName].bufferSize);
         ncnn::Mat outMat;
         ex.extract(outputName, outMat);
-        printf("%d %d %d %d\n", outMat.dims, outMat.h, outMat.w, outMat.c);
+        // printf("%d %d %d %d\n", outMat.dims, outMat.h, outMat.w, outMat.c);
 
-        float *ptr = reinterpret_cast<float *>(outMat.data);
-        for (int j = 0; j < 10; j++) {
-            printf("%f buffer \n", *(ptr + j));
-        }
-        printf("================================================ \n");
+        // float *ptr = reinterpret_cast<float *>(outMat.data);
+        // for (int j = 0; j < 10; j++) {
+        //     printf("%f out buffer \n", *(ptr + j));
+        // }
 
         if (out_buffer[outputName].dataType == 32) {
             ::memcpy(out_buffer[outputName].bufferData, outMat.data, sizeof(float) * 1000);

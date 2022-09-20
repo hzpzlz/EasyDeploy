@@ -8,17 +8,19 @@
 >+ NCNN: Releases 20220729 https://github.com/Tencent/ncnn
 
 ## Run On Linux Platform
-> support MNN and NCNN
+> support MNN and NCNN, change param in auto_run.sh
 ```
-set ARCH='linux' and HPC_BACKEND='MNN' or 'NCNN'
+set ARCH='linux' and HPC_BACKEND='MNN'
+set DEMO_SELECT='segmentation'
 
 sh auto_run.sh
 ```
 
 ## Run On Android Platform
-> now only support MNN
+> now only support MNN, change param in auto_run.sh
 ```
 set ARCH='android' and HPC_BACKEND='MNN'
+set DEMO_SELECT='segmentation'
 
 sh auto_run.sh
 ```
@@ -30,6 +32,7 @@ sh auto_run.sh
 
 ## [Update log]
 
+>+ 2022-09-20 support demo selct and add segmentation(now only MNN) demos
 >+ 2022-09-20 add NCNN infer framework, now support MNN+linux/MNN+android/NCNN+linux
 >+ 2022-09-19 add infer engine and image process, support MNN+linux and MNN+android
 

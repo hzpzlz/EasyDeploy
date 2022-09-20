@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <opencv2/opencv.hpp>
 
 enum EngineRuntime {
     MNN_RUNTIME_CPU = 100,

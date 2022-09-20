@@ -3,21 +3,22 @@
 
 ARCH='linux'  # "linux" "android"
 HPC_BACKEND='MNN'  #'MNN' 'NCNN'
+DEMO_SELECT='segmentation' #'all' means compile all project; include 'segmentation' 'mnist' 'squeezenet'
 
 mkdir build
 cd build
 rm * -rf
-../build.sh $ARCH ${HPC_BACKEND}
+../build.sh $ARCH ${HPC_BACKEND} ${DEMO_SELECT}
 
 make -j8
 make install
 
 ###for linux
 if [ "${ARCH}" = "linux" ]; then
-    echo "\n=============== run on linux platform ===============\n"
-    ./install/bin/squeezenetDemo
+    echo "\n================= run on linux platform =================\n"
+    ./sdks/${DEMO_SELECT}/install/bin/${DEMO_SELECT}Demo
 elif [ "${ARCH}" = "android" ]; then
-    echo "=============== run on android platform ==============="
+    echo "\n================= run on android platform =================n"
     adb root
     adb remount
     root=/data/local/seg_hzp

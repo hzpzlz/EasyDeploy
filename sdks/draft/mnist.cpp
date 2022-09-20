@@ -1,14 +1,10 @@
-// #include "Backend.hpp"
-#include "Interpreter.hpp"
-#include "MNNDefine.h"
-#include "Tensor.hpp"
-// #include "revertMNNModel.hpp"
-
 #include <math.h>
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <stdio.h>
-using namespace MNN;
+
+#include "inference.h"
+#include "post_process.h"
 
 int main(void)
 {

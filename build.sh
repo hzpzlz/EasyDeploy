@@ -1,6 +1,7 @@
 ARCH=$1    # suport  'linux' 'android'
 ABI='arm64-v8a'   # only support arm68-v8a 
 HPC_BACKEND=$2 # now only support MNN, support NCNN soon
+DEMO_SELECT=$3    #'all' means compile all project; include 'segmentation' 'mnist' 'squeezenet'
 
 #!/bin/bash
 
@@ -12,7 +13,7 @@ fi
 
 if [ "$ARCH" = "linux" ]; then
     echo "---------------------cmake linux ---------------------"
-    cmake -DARCH=$ARCH -DHPC_BACKEND=$HPC_BACKEND ../
+    cmake -DARCH=$ARCH -DHPC_BACKEND=$HPC_BACKEND -DDEMO_SELECT=${DEMO_SELECT} ../
 elif [ "$ARCH" = "android" ]; then
     echo "---------------------cmake android ---------------------"
     cmake -DDEBUG=NO -DCMAKE_TOOLCHAIN_FILE=$NDKROOT/build/cmake/android.toolchain.cmake \

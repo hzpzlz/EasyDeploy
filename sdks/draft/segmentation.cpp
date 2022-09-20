@@ -94,9 +94,6 @@ int main(void)
     else if  (out_tensor->getDimensionType() == MNN::Tensor::CAFFE) {
         std::cout<<"using tpye CAFFE"<<std::endl;
     }
-    std::cout<<"device out_tensor tpye: "<<out_tensor->getDimensionType()<<std::endl;
-    std::cout<<"device out_tensor size: "<<out_tensor->size()<<std::endl;
-    std::cout<<"device out_tensor elesize: "<<out_tensor->elementSize()<<std::endl;
     
     out_tensor->copyToHostTensor(&out_tensor_host);
     std::cout<<"host tensor size: "<<out_tensor_host.size()<<std::endl;

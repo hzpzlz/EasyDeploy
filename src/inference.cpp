@@ -17,7 +17,7 @@ int inference::Init(InferConfig config, InferModelConfig model_config) {
         return -1;
     }
     EdModelInfo model_info = {};
-    model_info.modelPath = "squeezenet_v1.1";
+    model_info.modelPath = "seg";
     setRuntime(model_config.runtime, model_info);
     setPrecision(model_config.precision, model_info);
     setPower(model_config.power, model_info);
@@ -25,19 +25,19 @@ int inference::Init(InferConfig config, InferModelConfig model_config) {
 
     EdNodeInfo input_node;
     input_node.dataType = 32;
-    input_node.name = "data";
+    input_node.name = "input";
     input_node.shape[0] = 1;
-    input_node.shape[1] = 227;
-    input_node.shape[2] = 227;
+    input_node.shape[1] = 768;
+    input_node.shape[2] = 768;
     input_node.shape[3] = 3;
 
     EdNodeInfo output_node;
     output_node.dataType = 32;
-    output_node.name = "prob";
+    output_node.name = "output";
     output_node.shape[0] = 1;
-    output_node.shape[1] = 1;
-    output_node.shape[2] = 1;
-    output_node.shape[3] = 1000;
+    output_node.shape[1] = 768;
+    output_node.shape[2] = 768;
+    output_node.shape[3] = 1;
 
     model_info.inputNode.push_back(input_node);
     model_info.outputNode.push_back(output_node);
@@ -64,5 +64,6 @@ int inference::process() {
     }
     printf("Infer Engine process success ! \n");
 
+    printf("\n======================= show result =======================\n");
     return 0;
 }

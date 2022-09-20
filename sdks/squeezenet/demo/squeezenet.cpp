@@ -11,8 +11,14 @@ int main(void)
     std::string assets = "../assets";
     std::string model_name = "squeezenet_v1.1.mnn";
     std::string img_path = "../assets/cat.jpeg";
-    
-    int MODEL_SIZE = 227;
+
+    int input_height = 227;
+    int input_width = 227;
+    int input_channel = 3;
+
+    int output_height = 1;
+    int output_width = 1;
+    int output_channel = 1000;
 
     InferConfig config;
     config.assets_path = assets;
@@ -28,7 +34,7 @@ int main(void)
     int raw_image_width  = raw_image.cols; 
     //将图像resize到模型大小
     cv::Mat image;
-    cv::resize(raw_image, image, cv::Size(MODEL_SIZE, MODEL_SIZE));
+    cv::resize(raw_image, image, cv::Size(input_height, input_width));
     printf("input img size: %d %d \n", raw_image_height, raw_image_width);
 
     // image preprocessing
@@ -36,23 +42,23 @@ int main(void)
     image.convertTo(image, CV_32FC3, 1.0);
     image = image / 255.0;
 #endif
-    float *out_data = new float[1000];
+    float *out_data = new float[output_channel];
 
     model_config.input["data"].dataType = 32;
-    model_config.input["data"].bufferSize = 1 * MODEL_SIZE * MODEL_SIZE * 3 * sizeof(float);
+    model_config.input["data"].bufferSize = 1 * input_height * input_width * input_channel * sizeof(float);
     model_config.input["data"].bufferData = (void *)image.data;
 
     model_config.output["prob"].dataType = 32;
-    model_config.output["prob"].bufferSize = 1 * 1 * 1 * 1000 * sizeof(float);
+    model_config.output["prob"].bufferSize = 1 * output_height * output_width * output_channel * sizeof(float);
     model_config.output["prob"].bufferData = (void *)out_data;
 
     inference *infer = new inference();
     infer->Init(config, model_config);
     infer->process();
 
-    std::vector<float> cls_scores(1000, 0);
+    std::vector<float> cls_scores(output_channel, 0);
 
-    for (int j = 0; j < 1000; j++) {
+    for (int j = 0; j < output_channel; j++) {
         cls_scores[j] = out_data[j];
     }
 

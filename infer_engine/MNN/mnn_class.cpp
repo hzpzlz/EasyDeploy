@@ -1,4 +1,5 @@
 #include "mnn_class.h"
+
 using namespace MNN;
 
 int setRuntime(int runtime, EdModelInfo& model_info) {
@@ -183,10 +184,10 @@ int InferEngine::checkAndCreateInputBuffer(const std::vector<EdNodeInfo> node_in
     std::map<std::string, EdBuffer>::const_iterator buffer_iter;
     for (auto iter : inputData) {
         std::string inputName = iter.first;
-        float *ptr = reinterpret_cast<float *>(buffer[inputName].bufferData);
-        for (int j = 555; j < 565; j++) {
-            printf("%f buffer \n", *(ptr + j));
-        }
+        // float *ptr = reinterpret_cast<float *>(buffer[inputName].bufferData);
+        // for (int j = 555; j < 565; j++) {
+        //     printf("%f input buffer \n", *(ptr + j));
+        // }
         Tensor *inputItem = iter.second;
         std::vector<int> inputShape = inputItem->shape();
 
@@ -289,5 +290,3 @@ int InferEngine::Inference() {
     }
     return 0;
 }
-
-

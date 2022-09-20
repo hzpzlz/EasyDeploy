@@ -1,12 +1,14 @@
 cmake_minimum_required(VERSION 3.10.2)
 
-project(segment)
+project(easy_deploy)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread -fexceptions -frtti -fomit-frame-pointer -ffunction-sections -fdata-sections -ffast-math -Os -Wall")
 SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c++11 -pthread  -fexceptions -frtti -fomit-frame-pointer -ffunction-sections -fdata-sections -ffast-math -pie -fPIE -Os -Wall")
 SET(CMAKE_LD_FLAGS "${CMAKE_LD_FLAGS} -Wl --allow-multiple-definition --whole-archive -pie -fPIE -fuse-ld=gold")
 SET(CMAKE_BUILD_TYPE "Release")
 SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fuse-ld=gold")
+
+set(EASY_DEPLOY_DEMOS ${DEMO_SELECT} CACHE STRING "select easy deploy sdk")
 
 if(ANDROID)
     set(ARCH ${ANDROID_ABI})
@@ -36,11 +38,11 @@ message(STATUS "\n=========================== include ==========================
 
 #图像前后处理、项目的头文件以及推理框架的头文件
 set(HPC_CLASS_INC ${CMAKE_SOURCE_DIR}/infer_engine/${HPC_BACKEND}/)
-set(HPC_INC ${CMAKE_SOURCE_DIR}/dependency/inc/${HPC_BACKEND}/ ${HPC_CLASS_INC})
-set(EASY_DEPLOY_INC ${CMAKE_SOURCE_DIR}/inc/)
-set(IMAGE_PROCESS_INC ${CMAKE_SOURCE_DIR}/image/inc/)
+set(HPC_INC ${CMAKE_SOURCE_DIR}/dependency/include/${HPC_BACKEND}/ ${HPC_CLASS_INC})
+set(EASY_DEPLOY_INC ${CMAKE_SOURCE_DIR}/include/)
+set(IMAGE_PROCESS_INC ${CMAKE_SOURCE_DIR}/image/include/)
 #opencv头文件
-set(OPENCV_INC ${CMAKE_SOURCE_DIR}/dependency/inc/opencv4/)
+set(OPENCV_INC ${CMAKE_SOURCE_DIR}/dependency/include/opencv4/)
 
 message(STATUS "HPC_BACKEND_INC = " ${HPC_INC})
 message(STATUS "OPENCV_INC = " ${OPENCV_INC})
@@ -48,10 +50,12 @@ message(STATUS "IMAGE_PROCESS_INC = " ${IMAGE_PROCESS_INC})
 message(STATUS "EASY_DEPLOY_INC = " ${EASY_DEPLOY_INC})
 
 #include头文件
-include_directories(${OPENCV_INC})
-include_directories(${HPC_INC})
-include_directories(${EASY_DEPLOY_INC})
-include_directories(${IMAGE_PROCESS_INC})
+include_directories(
+    ${OPENCV_INC}
+    ${HPC_INC}
+    ${IMAGE_PROCESS_INC}
+    ${EASY_DEPLOY_INC}
+    )
 
 message(STATUS "\n=========================== libs ===========================\n")
 
@@ -75,35 +79,53 @@ message(STATUS "OPENCV_LIB = ${OPENCV_LIB}")
 # message(STATUS "OPENCV_INC = ${OpenCV_INCLUDE_DIRS}")
 # message(STATUS "OPENCV_LIB = ${OpenCV_LIBRARIES}")
 
-#demo和前后处理所需的cpp
+#前后处理和推理框架所需的cpp
 FILE(GLOB_RECURSE hpc_class_cpp ${CMAKE_SOURCE_DIR}/infer_engine/${HPC_BACKEND}/*.cpp)
 FILE(GLOB_RECURSE easy_deploy_cpp ${CMAKE_SOURCE_DIR}/src/*.cpp)
 FILE(GLOB_RECURSE image_process_cpp ${CMAKE_SOURCE_DIR}/image/src/*.cpp)
-FILE(GLOB_RECURSE demo_cpp ${CMAKE_SOURCE_DIR}/demo/suqeezenet.cpp)
-message(STATUS "DEMO_CPP = " ${demo_cpp})
 
-message(STATUS "\n================== execute CMakeLists Done, Start Install =============\n")
+add_subdirectory(sdks)
 
-#动态库
-add_library(
-    squeezenetlib
-    SHARED
-    ${hpc_class_cpp}
-    ${easy_deploy_cpp}
-    ${image_process_cpp}
-    ${demo_cpp}
-)
-#链接所需的lib
-target_link_libraries(
-    squeezenetlib
-    ${HPC_LIB}
-    ${OPENCV_LIB}
-)
+# FILE(GLOB_RECURSE demo_cpp ${CMAKE_SOURCE_DIR}/demo/squeezenet/squeezenet.cpp)
+# message(STATUS "DEMO_CPP = " ${demo_cpp})
 
-# #静态库
+# message(STATUS "\n================== execute CMakeLists Done, Start Install =============\n")
+
+# #动态库
 # add_library(
-#     seglibstatic
-#     STATIC
+#     squeezenetlib
+#     SHARED
+#     ${hpc_class_cpp}
+#     ${easy_deploy_cpp}
+#     ${image_process_cpp}
+#     ${demo_cpp}
+# )
+# #链接所需的lib
+# target_link_libraries(
+#     squeezenetlib
+#     ${HPC_LIB}
+#     ${OPENCV_LIB}
+# )
+
+# # #静态库
+# # add_library(
+# #     seglibstatic
+# #     STATIC
+# #     ${hpc_class_cpp}
+# #     ${image_process_cpp}
+# #     ${easy_deploy_cpp}
+# #     ${demo_cpp}
+# # )
+# # #链接所需的lib
+# # target_link_libraries(
+# #     seglibstatic
+# #     ${HPC_LIB}
+# #     ${OPENCV_LIB}
+# # )
+
+# #生成可执行文件
+# add_executable(
+#     squeezenetDemo
 #     ${hpc_class_cpp}
 #     ${image_process_cpp}
 #     ${easy_deploy_cpp}
@@ -111,38 +133,23 @@ target_link_libraries(
 # )
 # #链接所需的lib
 # target_link_libraries(
-#     seglibstatic
+#     squeezenetDemo
 #     ${HPC_LIB}
 #     ${OPENCV_LIB}
 # )
 
-#生成可执行文件
-add_executable(
-    squeezenetDemo
-    ${hpc_class_cpp}
-    ${image_process_cpp}
-    ${easy_deploy_cpp}
-    ${demo_cpp}
-)
-#链接所需的lib
-target_link_libraries(
-    squeezenetDemo
-    ${HPC_LIB}
-    ${OPENCV_LIB}
-)
+# ##install
+# set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/build/install)
+# set(CMAKE_INSTALL_BINDIR ${CMAKE_INSTALL_PREFIX}/bin/)
+# set(CMAKE_INSTALL_LIBDIR ${CMAKE_INSTALL_PREFIX}/lib/)
+# #set(CMAKE_INSTALL_INCLUDEDIR ${CMAKE_INSTALL_PREFIX}/inc/)
+# set(path_demo_output ${CMAKE_INSTALL_PREFIX}/demo/)
 
-##install
-set(CMAKE_INSTALL_PREFIX ${CMAKE_SOURCE_DIR}/build/install)
-set(CMAKE_INSTALL_BINDIR ${CMAKE_INSTALL_PREFIX}/bin/)
-set(CMAKE_INSTALL_LIBDIR ${CMAKE_INSTALL_PREFIX}/lib/)
-#set(CMAKE_INSTALL_INCLUDEDIR ${CMAKE_INSTALL_PREFIX}/inc/)
-set(path_demo_output ${CMAKE_INSTALL_PREFIX}/demo/)
-
-install(
-    TARGETS squeezenetDemo squeezenetlib
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-)
-#install(DIRECTORY ${path_inc_output} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-install(FILES ${seg_demo_cpp} DESTINATION ${path_demo_output})
+# install(
+#     TARGETS squeezenetDemo squeezenetlib
+#     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+#     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+#     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+# )
+# #install(DIRECTORY ${path_inc_output} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+# install(FILES ${seg_demo_cpp} DESTINATION ${path_demo_output})
