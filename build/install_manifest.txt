@@ -1,3 +1,0 @@
-/home/disk/4T/codes/Deploy/EasyDeploy/build/sdks/squeezenet/install/bin/squeezenetDemo
-/home/disk/4T/codes/Deploy/EasyDeploy/build/sdks/squeezenet/install/lib/libsqueezenet.so
-/home/disk/4T/codes/Deploy/EasyDeploy/build/sdks/squeezenet/install/demo//demo/squeezenet.cpp
