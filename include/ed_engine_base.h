@@ -36,7 +36,8 @@ enum EngineMemory {
 struct EdNodeInfo {
     /* data */
     int dataType;
-    const char *name;
+    //const char *name;
+    std::string name;
     size_t shape[4];
 };
 

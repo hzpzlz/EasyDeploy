@@ -9,8 +9,8 @@
 int main(void)
 {
     std::string assets = "../assets";
-    std::string model_name = "seg.mnn";
-    std::string img_path = "../assets/1.bmp";
+    std::string img_path = "../assets/segmentation/1.bmp";
+    std::string yaml_path = "../assets/segmentation/segmentation.yaml";
 
     int input_height = 768;
     int input_width = 768;
@@ -22,6 +22,8 @@ int main(void)
 
     InferConfig config;
     config.assets_path = assets;
+    config.yaml_path = yaml_path;
+
     InferModelConfig model_config;
     model_config.runtime = 0;
     model_config.precision = 0;
@@ -56,7 +58,7 @@ int main(void)
     infer->Init(config, model_config);
     infer->process();
 
-    cv::imwrite("../assets/seg.jpg", seg_res * 255.0);
+    cv::imwrite("../assets/segmentation/seg.jpg", seg_res * 255.0);
     printf("save seg output success!!!\n");
 
     return 0;

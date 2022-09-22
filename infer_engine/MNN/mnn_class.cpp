@@ -175,7 +175,7 @@ int InferEngine::checkAndCreateInputBuffer(const std::vector<EdNodeInfo> node_in
 
     std::vector<EdNodeInfo>::iterator in_node;
     for (auto node : node_info) {
-        printf("given net input name: %s \n", node.name);
+        printf("given net input name: %s \n", node.name.c_str());
         Tensor *inputItem = inputData[node.name];
         printf("given net input size [%d %d %d %d] \n", inputItem->shape()[0], inputItem->shape()[1], inputItem->shape()[2], inputItem->shape()[3]);
     }
@@ -191,7 +191,7 @@ int InferEngine::checkAndCreateInputBuffer(const std::vector<EdNodeInfo> node_in
         Tensor *inputItem = iter.second;
         std::vector<int> inputShape = inputItem->shape();
 
-        buffer_iter = buffer.find(std::string(inputName));
+        buffer_iter = buffer.find(inputName);
         if (buffer_iter == buffer.end()) {
             printf("data Input layer %s not match! \n", inputName.c_str());
             return -1;
@@ -232,7 +232,7 @@ int InferEngine::checkAndCreateOutputBuffer(const std::vector<EdNodeInfo> node_i
 
     std::vector<EdNodeInfo>::iterator node;
     for (auto node : node_info) {
-        printf("given net output name: %s \n", node.name);
+        printf("given net output name: %s ***\n", node.name.c_str());
         Tensor *outputItem = outputData[node.name];
         printf("given net output size [%d %d %d %d] \n", outputItem->shape()[0], outputItem->shape()[1], outputItem->shape()[2], outputItem->shape()[3]);
     }
@@ -244,7 +244,7 @@ int InferEngine::checkAndCreateOutputBuffer(const std::vector<EdNodeInfo> node_i
         Tensor *outputItem = iter.second;
         std::vector<int> outputShape = outputItem->shape();
 
-        buffer_iter = buffer.find(std::string(outputName));
+        buffer_iter = buffer.find(outputName);
         if (buffer_iter == buffer.end()) {
             printf("data Output layer %s not match! \n", outputName.c_str());
             return -1;

@@ -17,6 +17,7 @@ struct InferConfig
 {
     /* data */
     std::string assets_path;
+    std::string yaml_path;
 };
 
 struct InferModelConfig

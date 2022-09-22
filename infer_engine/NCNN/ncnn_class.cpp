@@ -42,10 +42,15 @@ int InferEngine::Init(EdModelInfo& model_info,
 
     net.opt.use_vulkan_compute = true;
     std::string path_param = model_path + ".param";
-    std::string path_bin = model_path+ ".bin";
+    std::string path_bin = model_path + ".bin";
+    //std::string path_param = "../assets/squeezenet_v1.1.param";
+    //std::string path_bin = "../assets/squeezenet_v1.1.bin";
+    printf("%s %s \n", path_param.c_str(), path_bin.c_str());
 
     net.load_param(path_param.c_str());
     net.load_model(path_bin.c_str());
+
+    printf("111111111111111111111111\n");
 
     setConfig(model_info);
 
@@ -59,7 +64,7 @@ int InferEngine::checkIOBuffer(const std::vector<EdNodeInfo> in_node_info, std::
     ncnn::Extractor ex = net.create_extractor();
 
     for (auto iter : in_node_info) {
-        const char *inputName = iter.name;
+        const char *inputName = iter.name.c_str();
         printf("intput info-> name: %s buffer_size: %ld \n", inputName, in_buffer[inputName].bufferSize);
         // unsigned char *ptr = reinterpret_cast<unsigned char *>(in_buffer[inputName].bufferData);
         // for (int j = 555; j < 565; j++) {
@@ -75,7 +80,7 @@ int InferEngine::checkIOBuffer(const std::vector<EdNodeInfo> in_node_info, std::
     }
 
     for (auto iter : out_node_info) {
-        const char *outputName = iter.name;
+        const char *outputName = iter.name.c_str();
         printf("output info-> name: %s buffer_size: %ld \n", outputName, out_buffer[outputName].bufferSize);
         ncnn::Mat outMat;
         ex.extract(outputName, outMat);

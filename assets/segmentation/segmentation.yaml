@@ -1,0 +1,11 @@
+project: segmentation
+model_path: ../assets/segmentation/seg
+
+model_io:
+  input_info: 
+    input:
+      1 768 768 3 32 
+  output_info:
+    output: 
+      1 768 768 1 32
+  

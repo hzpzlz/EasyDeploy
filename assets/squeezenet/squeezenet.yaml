@@ -1,0 +1,11 @@
+project: squeezenet
+model_path: ../assets/squeezenet/squeezenet_v1.1
+
+model_io:
+  input_info: 
+    data:
+      1 227 227 3 32 
+  output_info:
+    prob: 
+      1 1 1 1000 32
+  
