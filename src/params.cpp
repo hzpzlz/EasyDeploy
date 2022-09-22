@@ -30,20 +30,20 @@ int getConfigs(InferConfig config, EdModelInfo& model_info) {
         switch (val.Type())
         {
         case YAML::NodeType::Scalar :
-            printf("key: %s Scalar \n", key.c_str());
+            printf("--key: %s Scalar \n", key.c_str());
             break;
         case YAML::NodeType::Sequence:
-            printf("key: %s Sequence \n", key.c_str());
+            printf("--key: %s Sequence \n", key.c_str());
             std::cout << "Seq: " << val <<std::endl;
             break;
         case YAML::NodeType::Map:
-            printf("key: %s Map \n", key.c_str());
+            printf("--key: %s Map \n", key.c_str());
             break;
         case YAML::NodeType::Null:
-            printf("key: %s NULL \n", key.c_str());
+            printf("--key: %s NULL \n", key.c_str());
             break;
         case YAML::NodeType::Undefined:
-            printf("key: %s Undefined \n", key.c_str());
+            printf("--key: %s Undefined \n", key.c_str());
             break;
         default:
             break;
@@ -56,7 +56,7 @@ int getConfigs(InferConfig config, EdModelInfo& model_info) {
     for (auto io_name : params["model_io"]) {
         std::string io_names = io_name.first.as<std::string>();
 
-        printf("=================== io name is: %s ==================\n", io_names.c_str());
+        printf("-io name: %s \n", io_names.c_str());
 
         if (io_names == "input_info") {
             for (auto in_name : io_name.second) {
@@ -65,7 +65,7 @@ int getConfigs(InferConfig config, EdModelInfo& model_info) {
                 //char *input_name = in_name.first.as<std::string>().c_str();
 
                 input_node.name = const_cast<char *>(input_name.c_str());
-                printf("input name: %s, ", in_name.first.as<std::string>().c_str());
+                printf("--input name: %s, ", in_name.first.as<std::string>().c_str());
                 printf("shape and datatype: %s \n", in_name.second.as<std::string>().c_str());
                 std::vector<int> in_res;
                 stringToInt(in_name.second.as<std::string>().c_str(), in_res);
@@ -84,7 +84,7 @@ int getConfigs(InferConfig config, EdModelInfo& model_info) {
                 EdNodeInfo output_node;
                 std::string output_name = out_name.first.as<std::string>();
                 output_node.name = const_cast<char *>(output_name.c_str());
-                printf("output name: %s, ", output_name.c_str());
+                printf("--output name: %s, ", output_name.c_str());
                 printf("shape and datatype: %s \n", out_name.second.as<std::string>().c_str());
                 std::vector<int> out_res;
                 stringToInt(out_name.second.as<std::string>().c_str(), out_res);
@@ -99,4 +99,5 @@ int getConfigs(InferConfig config, EdModelInfo& model_info) {
         }
     }
     printf("===================== set params finished !!! =======================\n");
+    printf("\n");
 }

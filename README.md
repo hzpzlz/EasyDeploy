@@ -8,7 +8,8 @@
 >+ NCNN: Releases 20220729 https://github.com/Tencent/ncnn
 >+ YAML-CPP: 0.7.0 https://github.com/jbeder/yaml-cpp/tree/yaml-cpp-0.7.0
 
-## Set Network Params in assets/YourProjectName/xx.yaml like the flowing example
+## Set Network Params in assets/YourProjectName/xx.yaml 
+> like the flowing example
 ```
 project: squeezenet    #project name now notuse
 model_path: ../assets/squeezenet/squeezenet_v1.1   #set model path without suffix
@@ -29,8 +30,10 @@ model_io:     #fixed
 ## Run On Linux Platform
 > support MNN and NCNN, change param in auto_run.sh
 ```
-set ARCH='linux' and HPC_BACKEND='MNN'
-set DEMO_SELECT='segmentation'
+set 
+ARCH='linux'
+HPC_BACKEND='MNN'
+DEMO_SELECT='segmentation'
 
 sh auto_run.sh
 ```
@@ -38,8 +41,10 @@ sh auto_run.sh
 ## Run On Android Platform
 > now only support MNN, change param in auto_run.sh
 ```
-set ARCH='android' and HPC_BACKEND='MNN'
-set DEMO_SELECT='segmentation'
+set 
+ARCH='android'
+HPC_BACKEND='MNN'
+DEMO_SELECT='segmentation'  
 
 sh auto_run.sh
 ```

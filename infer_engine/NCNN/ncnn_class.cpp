@@ -43,14 +43,9 @@ int InferEngine::Init(EdModelInfo& model_info,
     net.opt.use_vulkan_compute = true;
     std::string path_param = model_path + ".param";
     std::string path_bin = model_path + ".bin";
-    //std::string path_param = "../assets/squeezenet_v1.1.param";
-    //std::string path_bin = "../assets/squeezenet_v1.1.bin";
-    printf("%s %s \n", path_param.c_str(), path_bin.c_str());
 
     net.load_param(path_param.c_str());
     net.load_model(path_bin.c_str());
-
-    printf("111111111111111111111111\n");
 
     setConfig(model_info);
 
