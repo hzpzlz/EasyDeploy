@@ -2,8 +2,8 @@
 ####目前仅使用于linux和phone的CPU后端，后续会更新DSP和GPU
 
 ARCH='linux'  # "linux" "android"
-HPC_BACKEND='NCNN'  #'MNN' 'NCNN'
-DEMO_SELECT='squeezenet' #'all' means compile all project; include 'segmentation' 'mnist' 'squeezenet'
+HPC_BACKEND='MNN'  #'MNN' 'NCNN'
+DEMO_SELECT='segmentation' #'all' means compile all project; include 'segmentation' 'mnist' 'squeezenet'
 
 mkdir build
 cd build
