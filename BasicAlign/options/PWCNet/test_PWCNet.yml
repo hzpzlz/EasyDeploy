@@ -1,0 +1,26 @@
+name: PWCNet-chairs
+suffix: ~  # add suffix to saved images
+model: align
+distortion: sr
+scale: 64
+crop_border: ~  # crop border when evaluation. If None(~), crop the scale pixels
+save_img: True
+gpu_ids: [1]
+stage: chairs
+
+datasets:
+  test:
+    name: aligncase
+    mode: Align
+    data_root: /home/hezhipeng/codes/BasicAlign/aligncase_1_rgb
+    img_size: [1280, 1280]
+
+#### network structures
+network_G:
+  which_model_G: PWCNet
+  output_level: 4
+
+#### path
+path:
+  root: /home/hezhipeng/codes/result/BasicAlign
+  pretrain_model_G: /home/hezhipeng/codes/result/BasicAlign/experiments/PWCNet-chairs/models/100_G.pth

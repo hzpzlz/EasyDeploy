@@ -1,0 +1,1 @@
+input1:=rawdata_bin/input1.raw input2:=rawdata_bin/input2.raw

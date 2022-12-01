@@ -1,0 +1,26 @@
+name: MaskFlowNet_v3-chairs
+suffix: ~  # add suffix to saved images
+model: align
+distortion: sr
+scale: 64
+crop_border: ~  # crop border when evaluation. If None(~), crop the scale pixels
+save_img: True
+gpu_ids: [4]
+stage: chairs
+
+datasets:
+  test:
+    name: aligncase
+    mode: Align
+    data_root: /home/hezhipeng/codes/BasicAlign/aligncase_1_rgb
+    #data_root: /home/hezhipeng/codes/BasicAlign/demo-frames
+
+#### network structures
+network_G:
+  which_model_G: MaskFlowNet_hzp_v3
+  output_level: 4
+
+#### path
+path:
+  root: /home/hezhipeng/codes/result/BasicAlign
+  pretrain_model_G: /home/hezhipeng/codes/result/BasicAlign/experiments/MaskFlowNet_v3-chairs/models

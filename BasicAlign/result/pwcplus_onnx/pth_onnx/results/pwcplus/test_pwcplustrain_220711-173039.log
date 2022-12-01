@@ -1,0 +1,32 @@
+22-07-11 17:30:39.589 - INFO:   name: pwcplus
+  suffix: None
+  model: align
+  distortion: sr
+  scale: 1
+  crop_border: None
+  save_img: True
+  gpu_ids: [2]
+  stage: chairs
+  datasets:[
+    test:[
+      name: aligncase
+      mode: Align
+      data_root: /home/hzp/codes/BasicAlign/demo-frames
+      img_size: [436, 1024]
+      phase: test
+      scale: 1
+      data_type: img
+    ]
+  ]
+  network_G:[
+    which_model_G: pwcnethty
+    scale: 1
+  ]
+  path:[
+    root: /home/hzp/codes/BasicAlign/result/pwcplus_onnx/pth_onnx
+    pretrain_model_G: /home/hzp/codes/BasicAlign/result/pwcplus_onnx/95000_G.pth
+    results_root: /home/hzp/codes/BasicAlign/result/pwcplus_onnx/pth_onnx/results/pwcplus
+    log: /home/hzp/codes/BasicAlign/result/pwcplus_onnx/pth_onnx/results/pwcplus
+  ]
+  is_train: False
+
